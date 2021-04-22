@@ -2,23 +2,9 @@
 
 Joel DeFries
 
-## Markdown Tips
-
-If you are unfamiliar with MarkDown, check out 
-[the official documentation](https://guides.github.com/features/mastering-markdown/).
-
-Note that IntelliJ IDEA has a Markdown preview that you can access in 
-the upper-right of the editor. Also, since Markdown documents&mdash;like
-source code&mdash;should be human-readable, make sure you keep your lines
-short, as you can see I have done in my Markdown files.
-
-Please remove this subsection before submitting your report. 
-
 ## Challenge #1 Complete
 
-(Explain your solution to Challenge #1. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+In edu.bsu.cs/QueryEngineModule, I changed the binding of the QueryEngine class to the WikipediaQueryEngine instead of the fake one.
 
 ## Challenge #2 Complete
 
