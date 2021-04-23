@@ -17,9 +17,10 @@ remove the unsightly T and Z's as the LocalDateTime class doesn't like to work i
 
 ## Challenge #3 Complete
 
-(Explain your solution to Challenge #3. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+I used stream() and a mere two functions within stream() to achieve the goal of this challenge (I'm very happy with that result!).
+.map() maps the formatter function to every element using the class::func syntax (IntelliJ directed me to this syntax from lambda, and it looks cleaner).
+.collect() collects all the items in response.revisions() and puts them into one string, delimited by "\n" just like in the original function.
+I have chosen to leave the original section of code for my own future reference if needed.
 
 ## Reflection Question #1: Functional vs OO
 

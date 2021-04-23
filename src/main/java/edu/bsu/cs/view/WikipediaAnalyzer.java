@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
+import java.util.stream.Collectors;
 
 public final class WikipediaAnalyzer extends VBox {
 
@@ -61,15 +62,20 @@ public final class WikipediaAnalyzer extends VBox {
     private void runQuery(String articleTitle) {
         try {
             QueryResponse response = engine.queryRevisions(articleTitle);
-            // FORMATTER CHOICE IS HERE:
             FormatterInterface formatter = formatterInterface;
-            StringBuilder stringBuilder = new StringBuilder();
+            // The functional-by-paradigm way:
+            String stringResult = response.revisions().stream()
+                    .map(formatter::format)
+                    .collect(Collectors.joining("\n"));
+            // The non-functional-by-paradigm way:
+            /*StringBuilder stringBuilder = new StringBuilder();
             for (Revision revision : response.revisions()) {
                 String message = formatter.format(revision);
                 stringBuilder.append(message);
                 stringBuilder.append("\n");
-            }
-            outputArea.setText(stringBuilder.toString());
+            }*/
+            // Only needs a string to put into output window.
+            outputArea.setText(stringResult);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Connection Problem");
