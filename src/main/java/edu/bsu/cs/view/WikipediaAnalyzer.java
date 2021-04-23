@@ -29,6 +29,7 @@ public final class WikipediaAnalyzer extends VBox {
     @SuppressWarnings("unused")
     @Inject
     private QueryEngine engine;
+    private FormatterInterface formatterInterface;
 
     // See note above
     @SuppressWarnings("unused")
@@ -58,10 +59,12 @@ public final class WikipediaAnalyzer extends VBox {
     private void runQuery(String articleTitle) {
         try {
             QueryResponse response = engine.queryRevisions(articleTitle);
-            RevisionFormatter formatter = new RevisionFormatter();
+            // Normal formatter choice is here, as expected:
+            //FormatterInterface formatter = new UserRevisionFormatter();
             StringBuilder stringBuilder = new StringBuilder();
             for (Revision revision : response.revisions()) {
-                String message = formatter.format(revision);
+                // For some otherworldly reason, this turns up null.
+                String message = formatterInterface.format(revision);
                 stringBuilder.append(message);
                 stringBuilder.append("\n");
             }

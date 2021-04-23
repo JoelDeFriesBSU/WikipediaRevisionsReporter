@@ -4,7 +4,7 @@ import edu.bsu.cs.model.Revision;
 
 import java.time.format.DateTimeFormatter;
 
-public final class RevisionFormatter {
+public final class RevisionFormatter implements FormatterInterface {
 
     public String format(Revision revision) {
         return String.format("At %s, a change by %s",
