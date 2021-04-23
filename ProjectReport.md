@@ -8,9 +8,12 @@ In edu.bsu.cs/QueryEngineModule, I changed the binding of the QueryEngine class 
 
 ## Challenge #2 Complete
 
-(Explain your solution to Challenge #2. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+I created the interface "FormatterInterface" which works with the two other formatters in view.
+I then made the "FormatterModule" class that works just like QueryEngineModule, but for the formatters.
+[It binds the interface to the chosen formatter class that works with it.]
+I then injected it into Guice in "WikipediaAnalyzer" using @Inject and replaced the actual formatter class call with it.
+To clean up the formatting of the datetime, I went for the simplistic route and used .replace() to
+remove the unsightly T and Z's as the LocalDateTime class doesn't like to work in the formatter.
 
 ## Challenge #3 Complete
 
